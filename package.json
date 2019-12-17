@@ -1,0 +1,23 @@
+{
+  "name": "fs-status",
+  "version": "0.0.3",
+  "description": "Fullstack Rocket Status Page",
+  "private": true,
+  "author": "Sven Gaubert",
+  "license": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/svengau/fs-status.git"
+  },
+  "bugs": {
+    "url": "https://github.com/svengau/fs-status/issues"
+  },
+  "scripts": {
+    "start": "livereload --port 8080 .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "livereload": "^0.8.2",
+    "serve": "^11.2.0"
+  }
+}

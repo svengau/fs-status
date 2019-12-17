@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Fullstack Rocket Status Page</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="theme-color" content="#000000" />
+    <meta name="msapplication-TileColor" content="#ffffff" />
+    <meta name="theme-color" content="#ffffff" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  </head>
+  <style>
+    body {
+      font-family: "Montserrat", sans-serif;
+    }
+    h1, p {
+      text-align: center;
+    }
+  </style>
+  <body>
+    <h1 class="title"">FullstackRocket Status</h1>
+    <p class="lead">
+      Deployment status of the demo website
+    </p>
+    <div id="app">
+      <div class="container">
+        <div class="row" v-for="project in projects">
+          <div class="col-8">
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              :href="project.url"
+            >
+              {{project.name}}
+            </a>
+          </div>
+          <div class="col-4">
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              :href="'https://app.netlify.com/sites/' + project.name + '/deploys'"
+            >
+            <img :src="project.statusUrl" :alt="project.name" />
+          </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script type="module">
+      const app = new Vue({
+        el: "#app",
+        data: {
+          projects: [
+            {
+              name: "fullstackrocket",
+              url: "https://www.fullstackrocket.com",
+              statusUrl:
+                "https://api.netlify.com/api/v1/badges/6ef4b36a-63f8-4583-aeba-992babbcd807/deploy-status"
+            },
+            {
+              name: "demo-map-react-rest-styled",
+              url: "https://demo-map-react-rest-styled.netlify.com",
+              statusUrl:
+                "https://api.netlify.com/api/v1/badges/6544ab29-e664-4760-8ca5-94ba91fc550c/deploy-status"
+            },
+            {
+              name: "demo-blog-react-rest-styled",
+              url: "https://demo-blog-react-rest-styled.netlify.com",
+              statusUrl:
+                "https://api.netlify.com/api/v1/badges/6e6c5753-c697-4890-93cd-2747ee5cc401/deploy-status"
+            }
+          ]
+        }
+      });
+    </script>
+  </body>
+</html>
+
